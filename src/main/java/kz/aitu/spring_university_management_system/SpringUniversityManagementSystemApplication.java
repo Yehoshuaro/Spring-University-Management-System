@@ -8,6 +8,8 @@ public class SpringUniversityManagementSystemApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(SpringUniversityManagementSystemApplication.class, args);
+        //sfdkgfjsdg
+
     }
 
 }
