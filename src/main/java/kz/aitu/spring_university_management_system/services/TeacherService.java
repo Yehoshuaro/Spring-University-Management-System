@@ -10,6 +10,7 @@ import java.util.List;
 @Service
 public class TeacherService {
 
+
     private Teacher currentTeacher;
 
     public Teacher getCurrentTeacher() {
@@ -25,14 +26,12 @@ public class TeacherService {
     }
 
     public void addAssignment(String title, String description, String dueDate) {
-        // Создаем новое задание
         Assignment assignment = new Assignment(title, description, dueDate);
-        // Добавляем задание в список заданий текущего учителя
         currentTeacher.addAssignment(assignment);
     }
 
     public char calculateGrade(int studentScore) {
-        // Пример простой логики выставления оценки
+
         if (studentScore >= 90) {
             return 'A';
         } else if (studentScore >= 80) {
