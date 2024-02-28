@@ -78,6 +78,7 @@ public class UserService implements UserServiceInterface {
                 System.out.println("Enter teacher operation");
                 teacher.toString();
             }
+
         } catch (Exception e) {
             e.printStackTrace();
         }

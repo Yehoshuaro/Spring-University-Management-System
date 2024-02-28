@@ -40,7 +40,6 @@ public class Teacher extends User {
                     .append(", Due Date: ").append(assignment.getDueDate())
                     .append("\n");
         }
-
         return stringBuilder.toString();
     }
 }
