@@ -50,6 +50,12 @@ public class StudentService implements StudentServiceInterface {
         }
     }
 
+    @Override
+    public double GPA(int studentId) {
+        Student student = repo.findById(studentId).orElse(null);
+        return student != null ? student.getGpa() : 0.0;
+    }
+
 
 
 

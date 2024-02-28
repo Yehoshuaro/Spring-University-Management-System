@@ -9,5 +9,5 @@ public interface StudentServiceInterface {
     boolean DeadSouls(int studentId); // To check if Attendance less than 70% and show if u have a retake or no
     double Hungergames(int studentId); // to check if the student has a Scholarship,
                                             // IncreasedScholarship or No Scholarship
-
+    double GPA(int studentId); // to get GPA of a student
 }
