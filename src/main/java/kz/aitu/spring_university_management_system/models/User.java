@@ -23,4 +23,8 @@ public class User {
         this.id = this.id;
         this.gender = gender;
     }
+
+    public User() {
+
+    }
 }
