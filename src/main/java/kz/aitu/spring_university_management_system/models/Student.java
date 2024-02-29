@@ -2,7 +2,9 @@ package kz.aitu.spring_university_management_system.models;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
+@EqualsAndHashCode(callSuper = true)
 @Data
 @Entity
 @Table(name ="student_table")

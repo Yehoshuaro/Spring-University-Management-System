@@ -23,12 +23,10 @@ public class StudentService implements StudentServiceInterface {
     @Override
     public boolean DeadSouls(int studentId) {
         Student student = repo.findById(studentId).orElse(null);
-        if(student != null && student.getAttendance() < student.getPercentage()){
+        if(student != null && student.getAttendance() < student.getPercentage())
             return true;
-        }
-        else{
-            return false;
-        }
+        return false;
+
     }
     @Override
     public double Hungergames(int studentId) {
