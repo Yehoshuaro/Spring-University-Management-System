@@ -21,6 +21,11 @@ public class StudentService implements StudentServiceInterface {
     }
 
     @Override
+    public Student getStudentByID(int studentId) {
+        return repo.findById(studentId).orElse(null);
+    }
+
+    @Override
     public boolean DeadSouls(int studentId) {
         Student student = repo.findById(studentId).orElse(null);
         if(student != null && student.getAttendance() < student.getPercentage())
@@ -54,7 +59,10 @@ public class StudentService implements StudentServiceInterface {
         return student != null ? student.getGpa() : 0.0;
     }
 
-
+    @Override
+    public Student add(Student student) {
+        return repo.save(student);
+    }
 
 
 }
