@@ -19,7 +19,7 @@ public class UserController {
 
     @GetMapping("hello")
     public String sayHello() {
-        return "Алматынын тундери ай";
+        return "The end is near";
     }
 
     @GetMapping("/")
@@ -40,7 +40,7 @@ public class UserController {
         User createdUser = service.create(user);
         if (createdUser == null)
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
-        return new ResponseEntity<>(createdUser, HttpStatus.CREATED); //201
+        return new ResponseEntity<>(createdUser, HttpStatus.CREATED); //201 error
     }
 
     @GetMapping("/surname/{user_surnme}")
