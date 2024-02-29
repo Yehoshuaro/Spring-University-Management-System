@@ -1,7 +1,7 @@
 package kz.aitu.spring_university_management_system.controllers;
 
-import org.example.models.Teacher;
-import org.example.services.TeacherService;
+import kz.aitu.spring_university_management_system.models.Teacher;
+import kz.aitu.spring_university_management_system.services.TeacherService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
