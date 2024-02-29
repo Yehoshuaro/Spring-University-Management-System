@@ -2,16 +2,16 @@ package kz.aitu.spring_university_management_system.models;
 
 import jakarta.persistence.*;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 
-@EqualsAndHashCode(callSuper = true)
 @Data
 @Entity
 @Table(name ="student_table")
-public class Student extends User{
+public class Student{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int studentId;
+    private String student_name;
+    private String student_surname;
     private double gpa;
     private int attendance;
     private int percentage = 70;
