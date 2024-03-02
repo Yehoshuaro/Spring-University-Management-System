@@ -14,9 +14,8 @@ public class Student{
     private String student_surname;
     private double gpa;
     private int attendance;
-    private boolean retake;
-    public final double scholarship = 41898.00;
-    public final double increased_scholarship = 48_000.00;
+    public final Integer scholarship = 41898;
+    public final Integer increased_scholarship = 48000;
 
 
 

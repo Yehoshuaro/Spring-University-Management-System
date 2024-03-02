@@ -5,7 +5,7 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "//name of the tables")
+@Table(name = "user_table")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -15,14 +15,14 @@ public class User {
     private boolean gender;
     private int age;
     private String password;
-    public User(String name, String surname, int age, String password, int id, boolean gender){
+    public User(String name, String surname, int age, String password, boolean gender){
         this.name = name;
         this.surname = surname;
-        this.age = this.age;
+        this.age = age;
         this.password = password;
-        this.id = this.id;
         this.gender = gender;
     }
+
 
     public User() {
 

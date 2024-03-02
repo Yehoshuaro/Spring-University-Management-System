@@ -45,9 +45,10 @@ public class StudentService implements StudentServiceInterface {
 
             else{gpa = 0.0;}
 
-            if(gpa >= 2.67 && gpa < 3.67){return student.getScholarship();}
+            if(gpa >= 2.67 && gpa < 3.67){return student.scholarship;}
 
-            else if (gpa >= 3.67 && gpa < 4.0) {return student.getIncreased_scholarship();}
+            else if (gpa >= 3.67 && gpa < 4.0) {
+                return student.increased_scholarship;}
 
             else{return 0.0;}
         }

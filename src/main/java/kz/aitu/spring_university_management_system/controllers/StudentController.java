@@ -19,7 +19,7 @@ public class StudentController {
     public List<Student> getAllStudents(){
         return service.getAllStudent();
     }
-    @GetMapping("/students/{student_id}/deadSouls")
+    @GetMapping("/students/{student_id}/DeadSouls")
     public boolean DeadSouls(@PathVariable int student_id) {
         return service.DeadSouls(student_id);
     }
@@ -31,11 +31,11 @@ public class StudentController {
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
-    @GetMapping("/students/{studentId}/hungergames")
+    @GetMapping("/students/{student_id}/hungergames")
     public double getHungergames(@PathVariable int student_id) {
         return service.Hungergames(student_id);
     }
-    @GetMapping("/students/{studentId}/gpa")
+    @GetMapping("/students/{student_id}/gpa")
     public double getGPA(@PathVariable int student_id){
         return service.GPA(student_id);
     }
