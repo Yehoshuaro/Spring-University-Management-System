@@ -16,28 +16,28 @@ public class StudentController {
         this.service = service;
     }
     @GetMapping("/getAll")
-    public List<Student> getAllStudent(){
+    public List<Student> getAllStudents(){
         return service.getAllStudent();
     }
-    @GetMapping("/students/{studentId}/deadSouls")
-    public boolean DeadSouls(@PathVariable int studentId) {
-        return service.DeadSouls(studentId);
+    @GetMapping("/students/{student_id}/deadSouls")
+    public boolean DeadSouls(@PathVariable int student_id) {
+        return service.DeadSouls(student_id);
     }
-    @GetMapping("/{studentId}")
-    public ResponseEntity<Student> getStudentById(@PathVariable("studentId") int studentId){
-        Student student = service.getStudentByID(studentId);
+    @GetMapping("/{student_id}")
+    public ResponseEntity<Student> getStudentById(@PathVariable("student_id") int student_id){
+        Student student = service.getStudentByID(student_id);
         if(student != null)
             return new ResponseEntity<>(HttpStatus.OK);
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
     @GetMapping("/students/{studentId}/hungergames")
-    public double getHungergames(@PathVariable int studentId) {
-        return service.Hungergames(studentId);
+    public double getHungergames(@PathVariable int student_id) {
+        return service.Hungergames(student_id);
     }
     @GetMapping("/students/{studentId}/gpa")
-    public double getGPA(@PathVariable int studentId){
-        return service.GPA(studentId);
+    public double getGPA(@PathVariable int student_id){
+        return service.GPA(student_id);
     }
 
     @PostMapping("/add")

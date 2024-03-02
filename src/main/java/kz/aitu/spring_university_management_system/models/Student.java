@@ -9,15 +9,14 @@ import lombok.Data;
 public class Student{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int studentId;
+    private int student_id;
     private String student_name;
     private String student_surname;
     private double gpa;
     private int attendance;
-    private int percentage = 70;
     private boolean retake;
-    public final double Scholarship = 41898.00;
-    public final double IncreasedScholarship = 48000.00;
+    public final double scholarship = 41898.00;
+    public final double increased_scholarship = 48_000.00;
 
 
 

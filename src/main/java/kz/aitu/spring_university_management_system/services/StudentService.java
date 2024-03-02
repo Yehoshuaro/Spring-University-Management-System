@@ -21,22 +21,22 @@ public class StudentService implements StudentServiceInterface {
     }
 
     @Override
-    public Student getStudentByID(int studentId) {
-        return repo.findById(studentId).orElse(null);
+    public Student getStudentByID(int student_id) {
+        return repo.findById(student_id).orElse(null);
     }
 
     @Override
-    public boolean DeadSouls(int studentId) {
-        Student student = repo.findById(studentId).orElse(null);
-        if(student != null && student.getAttendance() < student.getPercentage())
+    public boolean DeadSouls(int student_id) {
+        Student student = repo.findById(student_id).orElse(null);
+        if((student != null) && (student.getAttendance() < 70))
             return true;
         return false;
 
     }
     @Override
-    public double Hungergames(int studentId) {
-        Student student = repo.findById(studentId).orElse(null);
-        if(student != null && DeadSouls(studentId)){
+    public double Hungergames(int student_id) {
+        Student student = repo.findById(student_id).orElse(null);
+        if(student != null && DeadSouls(student_id)){
             return 0.0;
         }
         else{
@@ -47,15 +47,15 @@ public class StudentService implements StudentServiceInterface {
 
             if(gpa >= 2.67 && gpa < 3.67){return student.getScholarship();}
 
-            else if (gpa >= 3.67 && gpa < 4.0) {return student.getIncreasedScholarship();}
+            else if (gpa >= 3.67 && gpa < 4.0) {return student.getIncreased_scholarship();}
 
             else{return 0.0;}
         }
     }
 
     @Override
-    public double GPA(int studentId) {
-        Student student = repo.findById(studentId).orElse(null);
+    public double GPA(int student_id) {
+        Student student = repo.findById(student_id).orElse(null);
         return student != null ? student.getGpa() : 0.0;
     }
 
@@ -63,6 +63,4 @@ public class StudentService implements StudentServiceInterface {
     public Student add(Student student) {
         return repo.save(student);
     }
-
-
 }

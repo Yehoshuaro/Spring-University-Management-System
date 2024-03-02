@@ -7,6 +7,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 
 public interface StudentRepositoryInterface extends JpaRepository<Student, Integer>{
-    List<Student> getStudentsBySurname(String surname);
+    //List<Student> FindStudentBySurname(String surname);
 
 }
