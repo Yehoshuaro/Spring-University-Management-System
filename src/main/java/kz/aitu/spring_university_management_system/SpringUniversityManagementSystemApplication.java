@@ -10,5 +10,4 @@ public class SpringUniversityManagementSystemApplication {
         SpringApplication.run(SpringUniversityManagementSystemApplication.class, args);
 
     }
-
 }
