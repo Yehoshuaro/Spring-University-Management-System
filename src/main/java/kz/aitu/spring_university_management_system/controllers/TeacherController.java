@@ -1,59 +1,28 @@
 package kz.aitu.spring_university_management_system.controllers;
-
 import kz.aitu.spring_university_management_system.models.Teacher;
-import kz.aitu.spring_university_management_system.services.TeacherService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
+import kz.aitu.spring_university_management_system.services.interfaces.TeacherServiceInterface;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-@Controller
-@RequestMapping("/teacher")
-//@SessionAttributes("teacher")
+import java.util.List;
+
+@RestController
+@RequestMapping("teacher_table")
 public class TeacherController {
-
-    private final TeacherService teacherService;
-
-    @Autowired
-    public TeacherController(TeacherService teacherService) {
-        this.teacherService = teacherService;
+    private final TeacherServiceInterface service;
+    public TeacherController(TeacherServiceInterface service) {
+        this.service = service;
     }
 
-    @ModelAttribute("teacher")
-    public Teacher getTeacher() {
+    @GetMapping("/teacher_table/getCurrentTeacher")
+    public List<Teacher> getCurrentTeacher() {
         // Возвращает текущего учителя из сервиса
-        return teacherService.getCurrentTeacher();
+        return service.getCurrentTeacher();
     }
-
-    @GetMapping("/operations")
-    public String teacherOperations(Model model) {
-        return "teacher/operations";
+    @GetMapping("/teacher_table/{teacher_id}")
+    public ResponseEntity<Teacher> currentTeacherById(@PathVariable("teacher_id") int teacher_id){
+        Teacher teacher = service.currentTeacherById(teacher_id);
+        if(teacher != null)
+            return new ResponseEntity<>(teacher,HttpStatus.OK);
+        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
-
-    @GetMapping("/courseInformation")
-    public String viewCourseInformation(Model model) {
-        Teacher currentTeacher = teacherService.getCurrentTeacher();
-        model.addAttribute("course", currentTeacher.getCourse());
-        return "teacher/courseInformation";
-    }
-
-    @PostMapping("/updateCourse")
-    public String updateCourseInformation(@RequestParam String newCourse) {
-        teacherService.updateCourse(newCourse);
-        return "redirect:/teacher/operations";
-    }
-
-    @PostMapping("/addAssignment")
-    public String addAssignment(@RequestParam String title,
-                                @RequestParam String description,
-                                @RequestParam String dueDate) {
-        teacherService.addAssignment(title, description, dueDate);
-        return "redirect:/teacher/operations";
-    }
-
-    @PostMapping("/gradeAssignment")
-    public String gradeAssignment(@RequestParam int studentScore, Model model) {
-        char grade = teacherService.calculateGrade(studentScore);
-        model.addAttribute("grade", grade);
-        return "teacher/gradeAssignment";
-    }
-}
