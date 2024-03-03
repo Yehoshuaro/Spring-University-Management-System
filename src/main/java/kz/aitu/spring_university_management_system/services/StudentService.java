@@ -20,6 +20,8 @@ public class StudentService implements StudentServiceInterface {
         return repo.findAll();
     }
 
+
+
     @Override
     public Student getStudentByID(int student_id) {
         return repo.findById(student_id).orElse(null);
@@ -52,6 +54,11 @@ public class StudentService implements StudentServiceInterface {
 
             else{return 0.0;}
         }
+    }
+
+    @Override
+    public List<Student> getStudentBySurname(String surname) {
+        return repo.FindStudentBySurname(surname);
     }
 
     @Override

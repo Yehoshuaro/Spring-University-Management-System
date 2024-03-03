@@ -30,6 +30,10 @@ public class StudentController {
             return new ResponseEntity<>(HttpStatus.OK);
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
+    @GetMapping("/surname/{student_surname}")
+    public List<Student> getStudentBySurname(@PathVariable("student_surname") String surname) {
+        return service.getStudentBySurname(surname);
+    }
 
     @GetMapping("/students/{student_id}/hungergames")
     public double getHungergames(@PathVariable int student_id) {
